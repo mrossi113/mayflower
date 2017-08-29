@@ -1,0 +1,34 @@
+<section class="ma__press-listing">
+  <div class="ma__press-listing__container">
+    {% if pressListing.compHeading %}
+      {% set compHeading = pressListing.compHeading %}
+      {% include "@atoms/04-headings/comp-heading.twig" %}
+    {% endif %}
+    {% if pressListing.sidebarHeading %}
+      {% set sidebarHeading = pressListing.sidebarHeading %}
+      {% include "@atoms/04-headings/sidebar-heading.twig" %}
+    {% endif %}
+    {% if pressListing.items %}
+      <div class="ma__press-listing__items">
+        {% for pressTeaser in pressListing.items %}
+          {% include "@molecules/press-teaser.twig" %}
+        {% endfor %}
+      </div>
+    {% endif %}
+    {% if pressListing.secondaryItems %}
+      <ul class="ma__press-listing__secondary-items">
+        {% for pressTeaser in pressListing.secondaryItems %}
+           <li class="ma__press-listing__secondary-item">
+            {% include "@molecules/press-teaser.twig" %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    {% if pressListing.more %}
+      <div class="ma__press-listing__more">
+        {% set link = pressListing.more %}
+        {% include "@atoms/11-text/link.twig" %}
+      </div>
+    {% endif %}
+  </div>
+</section>
